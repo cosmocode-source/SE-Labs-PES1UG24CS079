@@ -1,0 +1,28 @@
+@startuml UseCaseDiagram
+left to right direction
+skinparam packageStyle rectangle
+
+actor Developer as dev
+actor "API Client / Frontend" as client
+actor "System Admin" as admin
+
+rectangle "OpenAPI Mock Server System" {
+  usecase "Upload / Load OpenAPI Spec" as UC1
+  usecase "Generate Mock Server" as UC2
+  usecase "Send HTTP Request to Mock Endpoint" as UC3
+  usecase "Simulate Dynamic Responses" as UC4
+  usecase "Configure Latency & Error Rules" as UC5
+  usecase "View Request & Response Logs" as UC6
+}
+
+dev --> UC1
+dev --> UC2
+dev --> UC5
+
+client --> UC3
+UC3 ..> UC4 : <<include>>
+
+admin --> UC6
+
+UC2 .> UC1 : <<include>>
+@enduml

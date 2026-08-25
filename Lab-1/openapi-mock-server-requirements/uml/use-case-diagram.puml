@@ -1,28 +1,75 @@
-@startuml UseCaseDiagram
+@startuml OpenAPIMockServerUseCaseDiagram
+
+title OpenAPI Mock Server Generator — UML Use-Case Diagram
+
 left to right direction
+skinparam shadowing false
 skinparam packageStyle rectangle
-
-actor Developer as dev
-actor "API Client / Frontend" as client
-actor "System Admin" as admin
-
-rectangle "OpenAPI Mock Server System" {
-  usecase "Upload / Load OpenAPI Spec" as UC1
-  usecase "Generate Mock Server" as UC2
-  usecase "Send HTTP Request to Mock Endpoint" as UC3
-  usecase "Simulate Dynamic Responses" as UC4
-  usecase "Configure Latency & Error Rules" as UC5
-  usecase "View Request & Response Logs" as UC6
+skinparam usecase {
+    BackgroundColor #EAF2FF
+    BorderColor #2563EB
+    ArrowColor #1F2937
+}
+skinparam actor {
+    BorderColor #1F2937
+    FontColor #111827
 }
 
-dev --> UC1
-dev --> UC2
-dev --> UC5
+' Actors
+actor "API Developer" as Developer
+actor "QA Engineer" as QA
+actor "API Client /\nFrontend Application" as Client
 
-client --> UC3
-UC3 ..> UC4 : <<include>>
+' System boundary
+rectangle "OpenAPI Mock Server Generator" {
 
-admin --> UC6
+    usecase "UC-01\nGenerate and Start\nMock Server" as UC01
 
-UC2 .> UC1 : <<include>>
+    usecase "UC-02\nConfigure Response\nLatency" as UC02
+
+    usecase "UC-03\nSend Request to\nMock Endpoint" as UC03
+
+    usecase "UC-04\nValidate OpenAPI\nSpecification" as UC04
+
+    usecase "UC-05\nGenerate Dynamic\nMock Endpoints" as UC05
+
+    usecase "UC-06\nGenerate Randomized\nSchema-Compliant\nJSON Response" as UC06
+
+    usecase "UC-07\nDisplay Validation\nErrors" as UC07
+
+    usecase "UC-08\nStop Mock Server" as UC08
+
+    usecase "UC-09\nUpload OpenAPI 3.0\nYAML or JSON File" as UC09
+}
+
+' Actor associations
+Developer --> UC01
+Developer --> UC02
+Developer --> UC03
+Developer --> UC08
+
+QA --> UC02
+QA --> UC03
+
+Client --> UC03
+
+' Mandatory included behaviour
+UC01 ..> UC09 : <<include>>
+UC09 ..> UC04 : <<include>>
+UC01 ..> UC05 : <<include>>
+UC03 ..> UC06 : <<include>>
+
+' Conditional behaviour
+UC07 ..> UC04 : <<extend>>
+
+note right of UC07
+Displayed only when the
+OpenAPI specification is invalid.
+end note
+
+note right of UC02
+Allows simulated response
+latency to be configured.
+end note
+
 @enduml

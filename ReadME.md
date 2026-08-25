@@ -7,5 +7,5 @@
 | Lab No. | Topic |
 | :--- | :--- |
 | Lab1 | Requirements Engineering & UML Use-Case Modelling |
-| Lab2 | |
+| Lab2 | Agile Backlog Creation & Sprint Simulation in Jira|
 | Lab3 | |

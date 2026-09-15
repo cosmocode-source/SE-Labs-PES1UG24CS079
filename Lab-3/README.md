@@ -8,9 +8,7 @@
 ## Files
 
 - `Lab3_PES1UG24CS079_B_Complete.pdf` — complete formal Lab 3 report.
-- `Lab3_Component_Diagram_PES1UG24CS079.png` — standalone UML Component Diagram.
 - `Lab3_Component_Diagram_PES1UG24CS079.pdf` — standalone UML Component Diagram in PDF format.
-- `Lab3_Architectural_Justification_PES1UG24CS079.docx` — editable one-page written justification.
 - `Lab3_Architectural_Justification_PES1UG24CS079.pdf` — one-page written justification in submission format.
 
 ## Handout compliance checklist

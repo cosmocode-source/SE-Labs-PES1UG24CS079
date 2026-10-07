@@ -3,11 +3,20 @@ from words import WORDS, HINTS
 from stats import SessionStats
 
 
+DIFFICULTIES = {
+    "easy": {"lives": 8, "win_score": 3},
+    "normal": {"lives": 6, "win_score": 5},
+    "hard": {"lives": 4, "win_score": 8},
+}
+HINT_PENALTY = 1
+
+
 class HangmanGame:
     def __init__(self):
         self.score = 0
         self.streak = 0
         self.category = "technology"
+        self.difficulty = "normal"
         self.secret = ""
         self.guessed = set()
         self.wrong = set()
@@ -19,7 +28,7 @@ class HangmanGame:
         self.secret = random.choice(WORDS[self.category])
         self.guessed.clear()
         self.wrong.clear()
-        self.lives = 6
+        self.lives = DIFFICULTIES[self.difficulty]["lives"]
         self.hint_used = False
 
     def masked(self):
@@ -44,7 +53,7 @@ class HangmanGame:
         if self.hint_used:
             return None
         self.hint_used = True
-        self.score = max(0, self.score - 1)
+        self.score = max(0, self.score - HINT_PENALTY)
         return HINTS.get(self.secret, "No hint available.")
 
     def play_round(self):
@@ -64,7 +73,7 @@ class HangmanGame:
 
         if self.won():
             self.streak += 1
-            self.score += 5 + self.streak
+            self.score += DIFFICULTIES[self.difficulty]["win_score"] + self.streak
             self.stats.record(True, self.streak)
             print("Solved:", self.secret)
             return True
@@ -79,9 +88,15 @@ class HangmanGame:
         print("A session consists of multiple rounds.")
         while True:
             print("\nCategories:", ", ".join(WORDS))
-            raw = input("Choose category or q: ").strip().lower()
+            raw = input("Choose category, difficulty, or q: ").strip().lower()
             if raw == "q":
                 return
+            if raw in DIFFICULTIES:
+                self.difficulty = raw
+                print("Difficulty:", self.difficulty)
+                raw = input("Choose category or q: ").strip().lower()
+                if raw == "q":
+                    return
             if raw not in WORDS:
                 print("Unknown category.")
                 continue
@@ -90,5 +105,10 @@ class HangmanGame:
                 return
             again = input("Another round? [y/n]: ").strip().lower()
             if again != "y":
-                print("Final score:", self.score, " Streak:", self.streak)
+                print(
+                    "Final score:", self.score,
+                    "Rounds:", self.stats.rounds,
+                    "Wins:", self.stats.wins,
+                    "Best streak:", self.stats.best_streak,
+                )
                 return

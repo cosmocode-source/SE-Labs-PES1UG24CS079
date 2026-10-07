@@ -132,7 +132,11 @@ Prepare the terminal before recording so the demonstration fits the required dur
 
 AI assistance was used to inspect the code, explain proposed changes, and support implementation and testing. The student remains responsible for understanding the final code and verifying its behaviour.
 
-**Complete chat-history link:** `ADD_ACCESSIBLE_SHARED_CHAT_LINK_HERE`
+**Complete chat-history link:** https://claude.ai/share/a3e4641d-0d52-4277-8891-91ec2c0f965c
+
+For commit and merge details, see [Imp Info.md](./Imp%20Info.md). The
+`hangman-tasks` branch contains all four requested commits, and its files
+were merged into `Code Files (16_Hangman)` on the Lab-4 `main` branch.
 
 ## Submission Checklist
 

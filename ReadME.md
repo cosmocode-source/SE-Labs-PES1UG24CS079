@@ -4,8 +4,9 @@
 **Name:** Arin Singh  
 **SRN:** PES1UG24CS079  
 
-| Lab No. | Topic |
-| :--- | :--- |
+| Lab No. | Topic                                             |
+| :--- | :---                                                 |
 | Lab1 | Requirements Engineering & UML Use-Case Modelling    |
 | Lab2 | Agile Backlog Creation & Sprint Simulation in Jira   |
 | Lab3 | Component Modelling & Architectural Pattern Selection|
+| Lab4 | VibeCoding                                           | 

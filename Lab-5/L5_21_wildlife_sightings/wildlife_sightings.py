@@ -44,8 +44,8 @@ def rarest(connection):
     rows = connection.execute(
         "SELECT species, SUM(count) FROM sightings GROUP BY species"
     ).fetchall()
-    l=min(rows, key=lambda r: r[1])
-    return l[0]
+    rarest_row = min(rows, key=lambda row: row[1])
+    return rarest_row[0]
 
 
 def main():

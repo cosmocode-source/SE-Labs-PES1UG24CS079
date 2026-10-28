@@ -1,0 +1,1 @@
+.\L5_21_wildlife_sightings\wildlife_sightings.py:63:7: W292 no newline at end of file

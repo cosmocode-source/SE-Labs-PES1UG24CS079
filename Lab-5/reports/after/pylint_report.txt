@@ -1,0 +1,6 @@
+************* Module wildlife_sightings
+L5_21_wildlife_sightings\wildlife_sightings.py:63:0: C0304: Final newline missing (missing-final-newline)
+
+------------------------------------------------------------------
+Your code has been rated at 9.66/10 (previous run: 3.46/10, +6.19)
+

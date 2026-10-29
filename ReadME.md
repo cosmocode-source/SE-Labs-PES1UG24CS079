@@ -10,3 +10,4 @@
 | Lab2 | Agile Backlog Creation & Sprint Simulation in Jira   |
 | Lab3 | Component Modelling & Architectural Pattern Selection|
 | Lab4 | VibeCoding                                           | 
+| Lab5 | Static Code Analysis                                 |

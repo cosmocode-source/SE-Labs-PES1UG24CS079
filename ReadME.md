@@ -11,3 +11,4 @@
 | Lab3 | Component Modelling & Architectural Pattern Selection|
 | Lab4 | VibeCoding                                           | 
 | Lab5 | Static Code Analysis                                 |
+| Lab6 | Code and Branch Coverage Analysis                    |

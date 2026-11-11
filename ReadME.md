@@ -12,3 +12,4 @@
 | Lab4 | VibeCoding                                           | 
 | Lab5 | Static Code Analysis                                 |
 | Lab6 | Code and Branch Coverage Analysis                    |
+| Lab7 | Fuzzing for Input Validation Bugs                    |
